@@ -1,10 +1,11 @@
 {
   "name": "meanapp-demo",
   "version": "1.0.0",
-  "description": "Mongo+Mongoose+Express+Angular2+Nodejs+JWOT+BootSwatch",
-  "main": "index.js",
+  "description": "Mongo + Mongoose + Express + Angular2 +Nodejs + JWOT+BootSwatch",
+  "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "npm test",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,14 @@
   },
   "homepage": "https://github.com/joha0033/MEANdemo#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33"
+    "jsonwebtoken": "^8.1.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.12.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0"
   }
 }
