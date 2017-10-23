@@ -1,0 +1,30 @@
+{
+  "name": "meanapp-demo",
+  "version": "1.0.0",
+  "description": "Mongo+Mongoose+Express+Angular2+Nodejs+JWOT+BootSwatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joha0033/MEANdemo.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Angular2",
+    "JWOT",
+    "Mongodb",
+    "Mongoose"
+  ],
+  "author": "joha0033@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joha0033/MEANdemo/issues"
+  },
+  "homepage": "https://github.com/joha0033/MEANdemo#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  }
+}
