@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const passport = require('passport')
+var passport = require('passport')
 const mongoose = require('mongoose')
 const config = require('./config/database')
 
@@ -29,11 +29,18 @@ const port = 3000
 //cors middleware
 app.use(cors())
 
+//set static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
 //bodyparser middleware
 app.use(bodyParser.json())
 
-//set static folder
-app.use(express.static(path.join(__dirname, 'public')))
+//Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./config/passport')(passport)
+
 
 app.use('/users', users)
 
