@@ -8,11 +8,11 @@ const User = require('../models/user')
 //Register
 router.post('/register', (req, res, next) => {
   console.log('got 1');
-  console.log(req.body);
+  console.log(req.body.username);
   let newUser = new User({
     name: req.body.name,
-    email: req.body.email,
     username: req.body.username,
+    email: req.body.email,
     password: req.body.password
   })
   console.log('newUser',newUser);
