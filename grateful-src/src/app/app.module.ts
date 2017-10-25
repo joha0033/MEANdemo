@@ -16,6 +16,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ValidateService } from './services/validate.service'
+import { FlashMessagesModule } from 'angular2-flash-messages'
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    FlashMessagesModule
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [ValidateService],
