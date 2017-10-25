@@ -1,3 +1,41 @@
-<p>
-  home works!
-</p>
+<div class="jumbotron text-center">
+  <h1>Welcome to {{ title }}</h1>
+  <p class="lead">A place to inspire. A place to get inspired </p>
+  <div >
+
+    <a
+      class="btn btn-primary"
+      [routerLink] = "['/login']">
+      Login
+    </a>
+
+    <a
+      class="btn btn-primary"
+      [routerLink] = "['/register']">
+      Register
+    </a>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Consistently thinking</h3>
+    <p>Trying to come up with something you're grateful
+       for can be hard at first. This here, this is
+       your practice. It makes perfect.</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Be inspired.</h3>
+    <p>Look to others for inspiration on thing to be
+      greatful for. Sometime you won't even realize
+      how many thing sthere are to be grateful for.</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Socialize</h3>
+    <p>Comment on other's gratefulness, share a similar
+      expereince, or just simply appreciate eachother,
+      together.</p>
+  </div>
+
+</div>
