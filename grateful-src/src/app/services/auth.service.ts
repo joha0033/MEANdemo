@@ -17,15 +17,25 @@ export class AuthService {
       .map(res => res.json())
   }
 
+
   authenticateUser(user){
-      console.log('user in authUser', user)
-      let headers = new Headers()
-      headers.append('Content-Type', 'application/json')
-      return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
-        .map(res => {
-          console.log(res.json())
-          res.json()
-        })
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+      .map(res => res.json());
   }
 
+  storeUserData(token, user){
+    localStorage.setItem('id_token', token)
+    localStorage.setItem('user', JSON.stringify(user))
+    this.authToken = token
+    this.user = user
+  }
+
+  logout(){
+    console.log('logout hit?')
+    this.authToken = null
+    this.user = null
+    localStorage.clear()
+  }
 }
