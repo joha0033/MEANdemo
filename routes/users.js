@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 const config = require('../config/database');
 const User = require('../models/user')
 
+require('../config/passport')(passport)
+
 //Register
 router.post('/register', (req, res, next) => {
   console.log('got 1');
@@ -67,7 +69,8 @@ router.post('/authenticate', function(req, res, next) {
 });
 
 // Profile
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+  console.log('get profile get?');
   res.json({user: req.user});
 });
 
