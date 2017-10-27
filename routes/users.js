@@ -19,8 +19,6 @@ router.post('/register', (req, res, next) => {
   })
   console.log('newUser',newUser);
 
-  User.sayIt('someshit!')//that worked
-
   User.addUser(newUser, (err, user) => {
     console.log('user',user);
     if(err) {

@@ -12,7 +12,7 @@ mongoose.connect(config.database)
 
 //On the connection
 mongoose.connection.on('connected', ()=> {
-  console.log('connected to', config.database, 'motherfucker');
+  console.log('connected to', config.database, 'MF');
 })
 mongoose.connection.on('error', (err)=> {
   console.log('NOT connected to', config.database, ', motherfucker', err);
@@ -39,10 +39,12 @@ app.use('/users', users)
 
 //index route
 app.get('/', (req, res, next) => {
+  console.log('slash/');
   res.send('what up? who are you?')
 })
 
 app.get('*', (req, res) => {
+  console.log('backup*');
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
