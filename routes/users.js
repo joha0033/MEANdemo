@@ -9,7 +9,7 @@ require('../config/passport')(passport)
 
 //Register
 router.post('/register', (req, res, next) => {
-  console.log('got 1');
+  console.log('got in post for register');
   console.log(req.body.username);
   let newUser = new User({
     name: req.body.name,
@@ -68,13 +68,16 @@ router.post('/authenticate', function(req, res, next) {
   });
 });
 
-// Profile
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-  console.log('get profile get?');
-  res.json({user: req.user});
+// Test
+router.get('/123', (req, res, next) => {
+  console.log('get 123 get?');
+  return res.json({msg:"hi! from 123"})
 });
 
-
-
+// Profile
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+  console.log('got in profile get.');
+  res.json({user: req.user});
+});
 
 module.exports = router;
