@@ -41,6 +41,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/users', users)
+app.use('/posts', posts)
 
 //index route
 app.get('/', (req, res, next) => {

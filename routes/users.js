@@ -9,8 +9,7 @@ require('../config/passport')(passport)
 
 //Register
 router.post('/register', (req, res, next) => {
-  console.log('got in post for register');
-  console.log(req.body.username);
+  console.log('in post for register');
   let newUser = new User({
     name: req.body.name,
     username: req.body.username,

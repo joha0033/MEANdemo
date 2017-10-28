@@ -17,7 +17,14 @@ const UserSchema = mongoose.Schema({
   password:{
     type: String,
     require: true
-  }
+  },
+  posts: [
+   {
+      type: mongoose.Schema.Types.ObjectId,
+      require: true,
+      ref: 'Post'
+   }
+]
 })
 
 const User = module.exports = mongoose.model('user', UserSchema)
