@@ -3,18 +3,14 @@ const config = require('../config/database')
 const moment = require('moment')
 
 const PostSchema = mongoose.Schema({
-  author: {
-    type: String,
-    require: true
-  },
-  //soon to be data
-  // [
-  //    {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       require: true,
-  //       ref: 'User'
-  //    }
-  // ]
+
+  author: [
+     {
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref: 'User'
+     }
+  ],
   content: {
     type: String,
     require: true

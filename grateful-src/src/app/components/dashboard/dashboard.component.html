@@ -1,2 +1,9 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to your dashboard</p>
+<h2 class="page-header">Be Grateful</h2>
+<p></p>
+<form (submit)="onGratefulSubmit()">
+  <div class="form-group">
+    <label>What will we be grateful for today?</label>
+    <input type="text" class="form-control" [(ngModel)] = "gratefulContent" name= "gratefulnesss">
+  </div>
+  <input type="submit" value="Submit">
+</form>

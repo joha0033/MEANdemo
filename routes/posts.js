@@ -14,7 +14,7 @@ router.get('/123', (req, res, next) => {
 });
 
 
-router.get('/posts', function(req, res) {
+router.get('/', function(req, res) {
   Post.find({}, function(err, posts) {
     if (err) {
       return res.status(500).json({ message: err.message });
@@ -38,7 +38,7 @@ router.post('/create', function(req, res) {
   Post.addPost(newPost, (err, post) => {
     console.log('post',post);
     if(err) {
-      res.json({success: false, msg: 'Boo you, failed to make a new port'})
+      res.json({success: false, msg: 'Boo you, failed to make a new post'})
     } else {
       res.json({success: true, msg: 'You did it!... post created'})
     }
@@ -46,7 +46,7 @@ router.post('/create', function(req, res) {
 
 });
 
-router.put('/posts/:id', function(req, res) {
+router.put('edit/:id', function(req, res) {
   var id = req.params.id;
   var post = req.body;
   if (post && post._id !== id) {
@@ -60,7 +60,7 @@ router.put('/posts/:id', function(req, res) {
   });
 });
 
-router.delete('/posts/:id', function(req, res) {
+router.delete('delete/:id', function(req, res) {
   var id = req.params.id;
   Post.findByIdAndRemove(id, function(err, result) {
     if (err) {

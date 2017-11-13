@@ -7,6 +7,7 @@ const User = require('../models/user')
 
 require('../config/passport')(passport)
 
+
 //Register
 router.post('/register', (req, res, next) => {
   console.log('in post for register');

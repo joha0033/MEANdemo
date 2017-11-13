@@ -14,6 +14,7 @@ mongoose.connect(config.database)
 mongoose.connection.on('connected', ()=> {
   console.log('connected to', config.database, 'MF');
 })
+
 mongoose.connection.on('error', (err)=> {
   console.log('NOT connected to', config.database, ', motherfucker', err);
 })
