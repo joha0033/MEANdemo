@@ -46,7 +46,7 @@ router.post('/create', function(req, res) {
 
 });
 
-router.put('edit/:id', function(req, res) {
+router.put(';userId/edit/:postId', function(req, res) {
   var id = req.params.id;
   var post = req.body;
   if (post && post._id !== id) {

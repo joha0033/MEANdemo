@@ -10,9 +10,12 @@ import { Router } from '@angular/router'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  getPosts: Array<{content: String}>;
   gratefulPost: String;
   content: String;
+  posts = ['blah blah blah things and stuff', 'family being so far away', 'My dick', 'Tornados'];
+  myFirstPost = this.posts[0];
+
   // gratefulPost: Object
 
 
@@ -24,7 +27,15 @@ export class DashboardComponent implements OnInit {
   ){ }
 
   ngOnInit() {
+    this.authService.getPosts().subscribe(posts =>{
+      console.log('posts', posts)
+      this.getPosts = posts.posts
+    }, err => {
+      console.log(err)
+      return false
+    })
   }
+
 
 
   onGratefulSubmit(){

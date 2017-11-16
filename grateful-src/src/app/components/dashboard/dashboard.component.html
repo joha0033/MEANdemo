@@ -12,3 +12,12 @@
   </div>
   <input type="submit" value="Submit">
 </form>
+
+<h1>Posts</h1>
+<h2>My first grateful post was: {{myFirstPost}}</h2>
+<p>All I am grateful for:</p>
+<ul>
+  <li *ngFor="let post of getPosts">
+    {{ post.content}}
+  </li>
+</ul>
