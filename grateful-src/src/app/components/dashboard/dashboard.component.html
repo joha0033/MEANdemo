@@ -3,7 +3,12 @@
 <form (submit)="onGratefulSubmit()">
   <div class="form-group">
     <label>What will we be grateful for today?</label>
-    <input type="text" class="form-control" [(ngModel)] = "gratefulContent" name= "gratefulnesss">
+    <input type="text" class="form-control" [(ngModel)]="gratefulPost" name="gratefulPost">
+    <br>
+
+    <li class="list-group-item">try and get a submit</li>
+    <li class="list-group-item">I'm just... grateful</li>
+
   </div>
   <input type="submit" value="Submit">
 </form>

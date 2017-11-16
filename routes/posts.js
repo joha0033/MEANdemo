@@ -29,7 +29,7 @@ router.post('/create', function(req, res) {
   var post = req.body;
 
   let newPost = new Post ({
-    author: req.body.author,
+    // author: req.body.author,
     content: req.body.content
   })
 

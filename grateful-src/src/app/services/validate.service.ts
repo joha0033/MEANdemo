@@ -18,4 +18,15 @@ export class ValidateService {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
+
+  validatePost(post){
+    console.log('validatePost hit', post)
+    if (post.content != undefined){
+      console.log('T validatePost hit')
+      return true
+    }else{
+      console.log('F validatePost hit')
+      return false
+    }
+  }
 }

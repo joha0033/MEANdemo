@@ -4,32 +4,33 @@ const moment = require('moment')
 
 const PostSchema = mongoose.Schema({
 
-  author: [
-     {
-        type: mongoose.Schema.Types.ObjectId,
-        require: true,
-        ref: 'User'
-     }
-  ],
+  // author: [
+  //    {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       require: true,
+  //       ref: 'User'
+  //    }
+  // ],
   content: {
     type: String,
     require: true
-  },
-  createdOn: {
-    type: Date,
-    require: true,
-    deault: moment(new Date()).format("MMM DD, YYYY")
-  },
-  Votes: {
-    type: Number,
-    required: true,
-    default: 0
-  },
-  Flags: {
-    type: Number,
-    required: true,
-    default: 0
   }
+  // ,
+  // createdOn: {
+  //   type: Date,
+  //   require: true,
+  //   deault: moment(new Date()).format("MMM DD, YYYY")
+  // },
+  // Votes: {
+  //   type: Number,
+  //   required: true,
+  //   default: 0
+  // },
+  // Flags: {
+  //   type: Number,
+  //   required: true,
+  //   default: 0
+  // }
 })
 
 const Post = mongoose.model('Post', PostSchema)

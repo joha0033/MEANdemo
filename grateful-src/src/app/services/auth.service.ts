@@ -38,7 +38,7 @@ export class AuthService {
     headers.append('Authorization', this.authToken)
     headers.append('Content-Type', 'application/json');
     // dev
-    return this.http.get('/users/profile', {headers: headers})
+    return this.http.get('http://localhost:3000/users/profile', {headers: headers})
       .map(res => res.json());
   }
 
@@ -47,6 +47,13 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user))
     this.authToken = token
     this.user = user
+  }
+
+  userPost(post){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/posts/create', post, {headers: headers})
+      .map(res => res.json());
   }
 
   loadToken(){
