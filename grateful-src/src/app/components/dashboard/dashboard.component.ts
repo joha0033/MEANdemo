@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // getPosts: Array<{author: String, content: String}>;
   getPosts: Array<{content: String}>;
   gratefulPost: String;
   content: String;
@@ -27,9 +28,17 @@ export class DashboardComponent implements OnInit {
   ){ }
 
   ngOnInit() {
-    this.authService.getPosts().subscribe(posts =>{
-      console.log('posts', posts)
+    //checking what is in local storage
+    for (var a in localStorage) {
+       console.log(a, ' = ', localStorage[a]);
+    }
+    //just seeing how to grab the author Id from local
+    let author = JSON.parse(localStorage.getItem('user'))
+    console.log(author.name)
+    this.authService.getPosts(author.name).subscribe(posts =>{
+      console.log('posts>', posts)
       this.getPosts = posts.posts
+      console.log('getPosts>', this.getPosts);
     }, err => {
       console.log(err)
       return false
@@ -41,10 +50,13 @@ export class DashboardComponent implements OnInit {
   onGratefulSubmit(){
     console.log('hit the onGratefulSubmit ')
     console.log(this.gratefulPost)
-
+    let author = JSON.parse(localStorage.getItem('user'))
+    console.log(author.name)
     const post = {
+      author: author.name,
       content: this.gratefulPost
     }
+
 
     //required field/length for post
     if(!this.validateService.validatePost(post)){
@@ -55,11 +67,10 @@ export class DashboardComponent implements OnInit {
     }
 
     //register post with user
-    this.authService.userPost(post).subscribe(data => {
+    this.authService.createPost(post).subscribe(data => {
       console.log('data>',data)
       if(data.success){
         this.flashMessage.show('grateful for your efforts, thank you for your post', {cssClass: 'alert-success', timeout: 3000})
-        this.router.navigate(['/profile'])
       }else{
         this.flashMessage.show('grateful for your efforts, but something went wrong', {cssClass: 'alert-danger', timeout: 3000})
 

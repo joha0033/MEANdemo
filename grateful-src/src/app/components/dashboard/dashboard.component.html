@@ -6,18 +6,12 @@
     <input type="text" class="form-control" [(ngModel)]="gratefulPost" name="gratefulPost">
     <br>
 
-    <li class="list-group-item">try and get a submit</li>
-    <li class="list-group-item">I'm just... grateful</li>
+    <ul>
+      <li class="list-group-item" *ngFor="let post of getPosts">
+        {{ post.content }}
+      </li>
+    </ul>
 
   </div>
   <input type="submit" value="Submit">
 </form>
-
-<h1>Posts</h1>
-<h2>My first grateful post was: {{myFirstPost}}</h2>
-<p>All I am grateful for:</p>
-<ul>
-  <li *ngFor="let post of getPosts">
-    {{ post.content}}
-  </li>
-</ul>

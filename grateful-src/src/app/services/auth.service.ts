@@ -23,6 +23,7 @@ export class AuthService {
 
 
   authenticateUser(user){
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // dev
@@ -33,6 +34,7 @@ export class AuthService {
   }
 
   getProfile(){
+
     let headers = new Headers();
     this.loadToken()
     headers.append('Authorization', this.authToken)
@@ -42,13 +44,16 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  getPosts(){
+  getPosts(userName){
     let headers = new Headers();
     this.loadToken()
     headers.append('Authorization', this.authToken)
     headers.append('Content-Type', 'application/json');
+    console.log('usersName>', userName)
+    let URL = 'http://localhost:3000/posts/' + userName
+    console.log(URL)
     // dev
-    return this.http.get('http://localhost:3000/posts/', {headers: headers})
+    return this.http.get(URL, {headers: headers})
       .map(res => res.json());
   }
 
@@ -59,11 +64,15 @@ export class AuthService {
     this.user = user
   }
 
-  userPost(post){
+  createPost(post){
+    console.log('hit userPost function, post>', post)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/posts/create', post, {headers: headers})
-      .map(res => res.json());
+      .map(function(res){
+        console.log('anything??');
+        return res.json();
+      })
   }
 
   loadToken(){

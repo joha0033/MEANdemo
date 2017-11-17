@@ -7,11 +7,20 @@ const User = require('../models/user')
 
 require('../config/passport')(passport)
 
+router.get('/', function(req, res) {
+  User.find({}, function(err, users) {
+    if (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    res.json({ users: users });
+  })
+});
 
 //Register
 router.post('/register', (req, res, next) => {
   console.log('in post for register');
   let newUser = new User({
+    _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     username: req.body.username,
     email: req.body.email,
