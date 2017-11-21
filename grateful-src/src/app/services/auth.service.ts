@@ -55,10 +55,8 @@ export class AuthService {
     // dev
     // let URL = 'http://localhost:3000/posts/' + userName
     // return this.http.get(URL, {headers: headers})
-    // dev
-    // return this.http.get('posts/' + userName, {headers: headers})
     // pro
-    return this.http.get('/posts/' + userName, {headers: headers})
+    return this.http.get('posts/' + userName, {headers: headers})
       .map(res => res.json());
   }
 
@@ -85,7 +83,7 @@ export class AuthService {
     //dev
     // return this.http.delete('http://localhost:3000/posts/'+ post)
     // pro
-    return this.http.delete('/posts/'+ post)
+    return this.http.delete('posts/'+ post)
       .map(function(res){
         return res.json();
       })
