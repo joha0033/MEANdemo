@@ -832,10 +832,8 @@ var AuthService = (function () {
         // dev
         // let URL = 'http://localhost:3000/posts/' + userName
         // return this.http.get(URL, {headers: headers})
-        // dev
-        // return this.http.get('posts/' + userName, {headers: headers})
         // pro
-        return this.http.get('/posts/' + userName, { headers: headers })
+        return this.http.get('posts/' + userName, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUserData = function (token, user) {
@@ -859,7 +857,7 @@ var AuthService = (function () {
         //dev
         // return this.http.delete('http://localhost:3000/posts/'+ post)
         // pro
-        return this.http.delete('/posts/' + post)
+        return this.http.delete('posts/' + post)
             .map(function (res) {
             return res.json();
         });
