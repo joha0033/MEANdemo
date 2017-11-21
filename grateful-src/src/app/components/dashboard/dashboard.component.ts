@@ -28,6 +28,10 @@ export class DashboardComponent implements OnInit {
   ){ }
 
   ngOnInit() {
+    this.gratefulGet()
+  }
+
+  gratefulGet(){
     //checking what is in local storage
     for (var a in localStorage) {
        console.log(a, ' = ', localStorage[a]);
@@ -43,8 +47,8 @@ export class DashboardComponent implements OnInit {
       console.log(err)
       return false
     })
-  }
 
+  }
 
 
   onGratefulSubmit(){
@@ -69,6 +73,7 @@ export class DashboardComponent implements OnInit {
     //register post with user
     this.authService.createPost(post).subscribe(data => {
       console.log('data>',data)
+      this.gratefulGet()
       if(data.success){
         this.flashMessage.show('grateful for your efforts, thank you for your post', {cssClass: 'alert-success', timeout: 3000})
       }else{
@@ -76,6 +81,7 @@ export class DashboardComponent implements OnInit {
 
       }
     })
+    this.gratefulPost = ''
 
   }
 }

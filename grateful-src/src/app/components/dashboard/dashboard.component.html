@@ -5,13 +5,39 @@
     <label>What will we be grateful for today?</label>
     <input type="text" class="form-control" [(ngModel)]="gratefulPost" name="gratefulPost">
     <br>
+    <div class="container">
+        <input type="submit" value="Submit">
+    </div>
 
-    <ul>
-      <li class="list-group-item" *ngFor="let post of getPosts">
-        {{ post.content }}
-      </li>
-    </ul>
+    <br />
 
   </div>
-  <input type="submit" value="Submit">
+
 </form>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>I'm grateful for...</th>
+      <th>Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of getPosts">
+      <td>date...</td>
+
+      <td>
+        <div class="col">
+          {{ post.content }}
+        </div>
+      </td>
+      <td>
+        <div class="buttons">
+          <input class="button-danger"type="submit" value="delete">
+          <input type="submit" value="edit">
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

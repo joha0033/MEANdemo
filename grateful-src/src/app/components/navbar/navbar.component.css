@@ -1,0 +1,15 @@
+
+
+
+@media (max-width: 768px) {
+  .noLink{
+    display: none
+  }
+
+ }
+ @media (min-width: 768px) {
+   .link{
+     display: none
+   }
+
+  }
