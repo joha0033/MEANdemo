@@ -414,11 +414,11 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.onLoginSubmit = function () {
         var _this = this;
-        console.log('hit the onLoginSubmit ');
         var user = {
             username: this.username,
             password: this.password
         };
+        console.log('hit the onLoginSubmit ', user);
         this.authService.authenticateUser(user).subscribe(function (data) {
             console.log(data);
             if (data.success) {
@@ -804,6 +804,7 @@ var AuthService = (function () {
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
+        console.log('authenticateUser - user>', user);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         // dev
@@ -831,7 +832,7 @@ var AuthService = (function () {
         // dev
         // let URL = 'http://localhost:3000/posts/' + userName
         // return this.http.get(URL, {headers: headers})
-        // dev
+        // pro
         return this.http.get('/posts/' + userName, { headers: headers })
             .map(function (res) { return res.json(); });
     };
