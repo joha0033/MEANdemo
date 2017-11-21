@@ -798,7 +798,9 @@ var AuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         //dev
-        return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
+        // return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+        // pro
+        return this.http.post('/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
