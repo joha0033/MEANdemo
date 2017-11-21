@@ -15,13 +15,10 @@ export class AuthService {
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
     //dev
-    return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+    // return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
     // pro
-<<<<<<< HEAD
-     return this.http.post('users/register', user, {headers: headers})
-=======
-    //  return this.http.post('/users/register', user, {headers: headers})
->>>>>>> dev
+    return this.http.post('users/register', user, {headers: headers})
+
       .map(res => res.json())
   }
 
@@ -58,13 +55,10 @@ export class AuthService {
     // dev
     // let URL = 'http://localhost:3000/posts/' + userName
     // return this.http.get(URL, {headers: headers})
-<<<<<<< HEAD
     // dev
-    return this.http.get('posts/' + userName, {headers: headers})
-=======
+    // return this.http.get('posts/' + userName, {headers: headers})
     // pro
     return this.http.get('/posts/' + userName, {headers: headers})
->>>>>>> dev
       .map(res => res.json());
   }
 

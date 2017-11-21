@@ -800,7 +800,7 @@ var AuthService = (function () {
         //dev
         // return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
         // pro
-        return this.http.post('/users/register', user, { headers: headers })
+        return this.http.post('users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
@@ -810,7 +810,7 @@ var AuthService = (function () {
         // dev
         // return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
         // pro
-        return this.http.post('/users/authenticate', user, { headers: headers })
+        return this.http.post('users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
@@ -821,7 +821,7 @@ var AuthService = (function () {
         // dev
         // return this.http.get('http://localhost:3000/users/profile', {headers: headers})
         // pro
-        return this.http.get('/users/profile', { headers: headers })
+        return this.http.get('users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getPosts = function (userName) {
@@ -832,6 +832,8 @@ var AuthService = (function () {
         // dev
         // let URL = 'http://localhost:3000/posts/' + userName
         // return this.http.get(URL, {headers: headers})
+        // dev
+        // return this.http.get('posts/' + userName, {headers: headers})
         // pro
         return this.http.get('/posts/' + userName, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -848,7 +850,7 @@ var AuthService = (function () {
         // dev
         // return this.http.post('http://localhost:3000/posts/create', post, {headers: headers})
         // pro
-        return this.http.post('/posts/create', post, { headers: headers })
+        return this.http.post('posts/create', post, { headers: headers })
             .map(function (res) {
             return res.json();
         });
