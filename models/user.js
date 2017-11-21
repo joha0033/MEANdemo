@@ -34,6 +34,7 @@ module.exports.getUserById = function(id, callback){
 }
 
 module.exports.getUserByUsername = function(username, callback){
+  console.log('export get user by Username hit');
   const query = {username: username}
   User.findOne(query, callback)
 }

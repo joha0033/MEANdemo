@@ -23,7 +23,7 @@ export class AuthService {
 
 
   authenticateUser(user){
-
+    console.log('authenticateUser - user>', user)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // dev
@@ -54,7 +54,7 @@ export class AuthService {
     // dev
     // let URL = 'http://localhost:3000/posts/' + userName
     // return this.http.get(URL, {headers: headers})
-    // dev
+    // pro
     return this.http.get('posts/' + userName, {headers: headers})
       .map(res => res.json());
   }
