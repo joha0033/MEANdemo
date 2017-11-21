@@ -20,7 +20,6 @@ router.get('/', function(req, res) {
 router.post('/register', (req, res, next) => {
   console.log('in post for register');
   let newUser = new User({
-    _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     username: req.body.username,
     email: req.body.email,

@@ -24,14 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit(){
-    console.log('hit the onLoginSubmit ')
     const user = {
       username: this.username,
       password: this.password
     }
-
-
-
+    console.log('hit the onLoginSubmit ', user)
     this.authService.authenticateUser(user).subscribe(data => {
       console.log(data)
       if(data.success){
