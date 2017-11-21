@@ -8,22 +8,15 @@ const PostSchema = mongoose.Schema({
     type: String,
     require: true
   },
-  // {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   require: true,
-  //   ref: 'User'
-  // },
-
   content:{
     type: String,
     require: true
+  },
+  createdOn: {
+    type: String,
+    require: true,
+    deault: moment(new Date()).format("MMM DD, YYYY")
   }
-  // ,
-  // createdOn: {
-  //   type: Date,
-  //   require: true,
-  //   deault: moment(new Date()).format("MMM DD, YYYY")
-  // },
   // Votes: {
   //   type: Number,
   //   required: true,
@@ -42,6 +35,14 @@ module.exports = Post
 
 module.exports.addPost = function (newPost, callback){
       newPost.save(callback)
+}
+
+module.exports.findByIdAndRemove = function (postId, callback){
+      Post.find({_id: postId}).remove(callback)
+}
+
+module.exports.findByIdAndRemove = function (postId, callback){
+      Post.find({_id: postId}).remove(callback)
 }
 
 // module.exports.getPostsById = function (userId, callback){

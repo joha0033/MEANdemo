@@ -24,8 +24,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let post of getPosts">
-      <td>date...</td>
+    <tr *ngFor="let post of getPosts" name="post">
+      <td>{{ post.createdOn }}</td>
 
       <td>
         <div class="col">
@@ -34,8 +34,8 @@
       </td>
       <td>
         <div class="buttons">
-          <input class="button-danger"type="submit" value="delete">
-          <input type="submit" value="edit">
+          <button class="button-danger" (click)= "onDelete(post._id)"> Delete  </button>
+          <!-- <button class="button-danger" (click)= "editting()"> Edit  </button> -->
         </div>
       </td>
     </tr>
