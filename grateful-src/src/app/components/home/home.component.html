@@ -1,14 +1,18 @@
-<div class="jumbotron text-center">
+
+<!-- JUMBOTRON NOT LOGGED IN-->
+<div *ngIf="!authService.loggedIn()" class="jumbotron text-center">
   <h1>Welcome to {{ title }}</h1>
-  <p class="lead">A place to inspire. A place to get inspired </p>
+  <p class="lead">(not logged in) A place to inspire. A place to get inspired </p>
   <div >
 
+    <!-- LOGIN BUTTON -->
     <a
       class="btn btn-danger"
       [routerLink] = "['/login']">
       Login
     </a>
 
+    <!-- REGISTER-BUTTON -->
     <a
       class="btn btn-primary"
       [routerLink] = "['/register']">
@@ -17,7 +21,37 @@
 
   </div>
 </div>
+<!-- JUMBOTRON NOT LOGGED IN-->
 
+<!-- ------------------------------------------- -->
+
+<!-- JUMBOTRON  LOGGED IN-->
+<div *ngIf="authService.loggedIn()" class="jumbotron text-center">
+  <h1>Welcome to {{ title }}</h1>
+  <p class="lead">(logged in) A place to inspire. A place to get inspired </p>
+  <div >
+
+    <!-- LOGIN BUTTON -->
+    <a
+      class="btn btn-danger"
+      [routerLink] = "['/login']">
+      Login
+    </a>
+
+    <!-- REGISTER-BUTTON -->
+    <a
+      class="btn btn-primary"
+      [routerLink] = "['/register']">
+      Register
+    </a>
+
+  </div>
+</div>
+<!-- JUMBOTRON  LOGGED IN-->
+
+<!-- ------------------------------------------- -->
+
+<!-- MEDIA -->
 <div class="row">
   <div class="col-md-4">
     <h3>Consistently thinking</h3>
@@ -37,5 +71,5 @@
       expereince, or just simply appreciate eachother,
       together.</p>
   </div>
-
 </div>
+<!-- MEDIA -->

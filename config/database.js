@@ -1,5 +1,10 @@
+let databaseURL = 'mongodb://localhost:27017/meanauth';
+
+if (process.env.DATABASE_URI) {
+  databaseURL = process.env.DATABASE_URI;
+}
+
 module.exports = {
-  // database: 'mongodb://localhost:27017/meanauth',
-  database: 'mongodb://joha0033:usa20034@ds031835.mlab.com:31835/grateful-bound',
+  database: databaseURL,
   secret: 'secret'
 }
