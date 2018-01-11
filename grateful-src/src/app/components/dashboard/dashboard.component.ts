@@ -4,6 +4,7 @@ import { FlashMessagesService } from 'angular2-flash-messages'
 import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router'
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -29,6 +30,10 @@ export class DashboardComponent implements OnInit {
 
   gratefulGet(){
     let author = JSON.parse(localStorage.getItem('user'))
+    // let author = {
+    //   name: 'michael',
+    //   post: 'jack'
+    // }
     this.authService.getPosts(author.name).subscribe(posts =>{
       this.getPosts = posts.posts
     }, err => {
